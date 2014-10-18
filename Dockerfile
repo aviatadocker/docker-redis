@@ -13,7 +13,10 @@ RUN \
   rm -rf /tmp/redis-2.8.17* && \
   sed -i 's/^\(bind .*\)$/# \1/' /etc/redis/redis.conf && \
   sed -i 's/^\(daemonize .*\)$/# \1/' /etc/redis/redis.conf && \
-  sed -i 's/^\(dir .*\)$/# \1\ndir \/data/' /etc/redis/redis.conf && \
+  sed -i 's/^\(dir .*\)$/# \1/' /etc/redis/redis.conf && \
+  sed -i 's/^\(save 900 1.*\)$/# \1/' /etc/redis/redis.conf && \
+  sed -i 's/^\(save 300 10.*\)$/# \1/' /etc/redis/redis.conf && \
+  sed -i 's/^\(save 60 10000.*\)$/# \1/' /etc/redis/redis.conf && \
   sed -i 's/^\(logfile .*\)$/# \1/' /etc/redis/redis.conf
 
 CMD ["redis-server", "/etc/redis/redis.conf"]
