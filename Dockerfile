@@ -2,9 +2,10 @@ FROM customercentrix/ubuntu
 
 RUN \
   cd /tmp && \
+  mkdir redis-2.8.17 && \
   wget http://download.redis.io/releases/redis-2.8.17.tar.gz && \
-  tar xvzf redis-stable.tar.gz && \
-  cd redis-stable && \
+  tar xvzf redis-2.8.17.tar.gz && \
+  cd redis-2.8.17 && \
   make && \
   make install && \
   cp -f src/redis-sentinel /usr/local/bin && \
